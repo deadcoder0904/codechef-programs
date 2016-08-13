@@ -5,13 +5,11 @@ using namespace  std;
 
 int main()
 {
-	int test,n,**arr;
+	int test,n;
 	cin>>test;
+	int arr[test][test];
 	while(test--){
 		cin>>n;
-		arr = new int*[n];
-		for (int i = 0; i < n; ++i)
-			arr[i] = new int[i+1];
 		for (int i = 0; i < n; ++i)
 			for (int j = 0; j <= i ; ++j)
 				cin>>arr[i][j];
