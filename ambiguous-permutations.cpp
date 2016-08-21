@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int check_ambiguous(vector<int> &arr){
+bool check_ambiguous(vector<int> &arr){
 	vector<int> inverse(arr.size());
 	for (int i = 0; i < arr.size(); ++i)
 		inverse[arr[i]-1]=i+1;
