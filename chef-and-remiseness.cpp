@@ -9,7 +9,10 @@ int main()
 	while(t--){
 		int a,b;
 		cin>>a>>b;
-		cout<<a<<" "<<a+b<<endl;
+		if(a>b)
+			cout<<a;
+		else cout<<b;
+		cout<<" "<<a+b<<endl;
 	}
 	return 0;
 }
