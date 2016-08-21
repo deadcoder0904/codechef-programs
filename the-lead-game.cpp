@@ -4,37 +4,23 @@ using namespace std;
 
 int main()
 {
-	int n,max=0,newmax,max1 = 0,max2 = 0;
-	bool leadplayer;
+	int n,a,b,s1=0,s2=0,max=0,d;
 	cin>>n;
-	int a,b,maxlead=0,lead,score1=0,score2=0;
-	bool player;
 	while(n--){
-		cin>>a>>b;
-		score1 += a;
-		score2 += b;
-		if(score1 > score2)
-			player = true;
-		else player = false;
-		if(player)
-			newmax = a - b,max1 += newmax;
-		else 
-			newmax = b - a,max2 += newmax;
-		if(max < newmax)
-			max = newmax;
-		if(score1 - score2 > 0) {
-			lead = score1 - score2;
-		} else {
-			lead = score2 - score1;
-		}
-		if(maxlead < lead)
-		{
-			leadplayer = player;
-			maxlead = lead;	
-		}
-	}
-	if(leadplayer)
-		cout<<"1 "<<max<<endl;
-	else cout<<"2 "<<max<<endl;
+	  cin>>a>>b;
+	  s1 += a;
+      s2 += b;
+      if(max<(s1-s2))
+      {
+        max=(s1-s2);
+        d=1;  
+      }
+      else if(max<(s2-s1))
+      {
+        max=s2-s1;
+        d=2;
+      }
+    }
+    cout<<d<<" "<<max<<endl;
 	return 0;
 }
