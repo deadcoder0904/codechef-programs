@@ -1,7 +1,10 @@
 #include <iostream>
-#include <math.h>
 
 using namespace std;
+
+bool distance_formula(int dx,int dy,int r){
+	return dx*dx + dy*dy <= r;
+}
 
 int main(int argc, char const *argv[])
 {
@@ -13,11 +16,11 @@ int main(int argc, char const *argv[])
 		int x[3],y[3];
 		for (int i = 0; i < 3; ++i)
 			cin>>x[i]>>y[i];
-		bool flag=true;
-		for (int i = 0; i < 2; ++i)
-			if(pow(x[i]-x[i+1],2)+pow(y[i]-y[i+1],2) > R)
-				flag = false;
-		if(flag)
+		int no = 0;
+		for (int i = 0; i < 3; ++i)
+			if(distance_formula(x[i%3]-x[(i+1)%3],y[i%3]-y[(i+1)%3],R))
+				no++;
+		if(no>1)
 			cout<<"yes"<<endl;
 		else cout<<"no"<<endl;		
 	}
