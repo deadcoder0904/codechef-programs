@@ -3,7 +3,7 @@
 using namespace std;
 
 bool distance_formula(int dx,int dy,int r){
-	return dx*dx + dy*dy <= r;
+	return dx*dx + dy*dy <= r*r;
 }
 
 int main(int argc, char const *argv[])
