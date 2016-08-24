@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ int main(int argc, char const *argv[])
 		if(q>1000)
 			sum = q * 0.9 * p; 	
 		else sum = q * p;
-		cout<<sum<<endl;
+		cout<<fixed<<setprecision(6)<<sum<<endl;
 	}
 	return 0;
 }
