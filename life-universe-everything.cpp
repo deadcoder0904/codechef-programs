@@ -1,6 +1,7 @@
 #include<iostream>
+
 using namespace std;
-int main(){
+	int main(){
 	int no;
 	cin>>no;
 	while(no!=42){
@@ -8,4 +9,4 @@ int main(){
 	cin>>no;
 	}
 	return 0;
-	}
+}
