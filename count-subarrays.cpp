@@ -62,14 +62,12 @@ int main()
 		int a[n],b[n];
 		REP(i,n)
 			cin>>a[i];
-		a[n]=0;
-		int ans=0;
-		NREP(i,n)
+		b[0]=1;
+		int ans=1;
+		REP1(i,1,n)
 		{
-			if(a[i] <= a[i+1])
-				b[i] = b[i+1] + 1;
-			else b[i] = 1;
-			ans += b[i];		
+			b[i] = 1 + ((a[i]>=a[i-1])?b[i-1]:0);
+      		ans += b[i];		
 		}		
 		cout<<ans<<endl;
 	}
