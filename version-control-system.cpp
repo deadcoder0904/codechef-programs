@@ -9,41 +9,6 @@
 
 using namespace std;
 
-int trackedAndIgnored(int x[], int y[],int min_val, int max_val){
-	int c=0;
-	REP(i,max_val)
-		REP(j,min_val)
-			if (x[j] == y[i])
-				c++;
-	return c;		
-}
-
-int untrackedAndUnignored(int x[], int y[],int min_val, int max_val){
-	int c=0,max1=0,min1=0;
-	REP(i,max_val)
-	{
-		max1=max(x[i],max1);
-		min1=min(x[i],min1);
-	}
-	REP(i,min_val)
-	{
-		max1=max(y[i],max1);
-		min1=min(y[i],min1);
-	}
-	REP2(i,min1,max1)
-	{
-		bool flag=0;
-		REP(j,min_val)
-			if(equ(x[j],i))
-				{flag=1;break;}
-		REP(j,max_val)
-			if(equ(y[j],i))
-				{flag=1;break;}
-		if(!flag) c++;
-	}	
-	return c-1;
-}
-
 int main(int argc, char const *argv[])
 {
 	int t;
@@ -51,15 +16,22 @@ int main(int argc, char const *argv[])
 	while(t--){
 		int n,m,k;
 		cin>>n>>m>>k;
-		int a[m],b[k],i=0,j=0;
-		while(i<m){
-			cin>>a[i++];
+		int a[100]={0},no;
+		while(m--){
+			cin>>no;
+			a[no-1]=1;
 		}
-		while(j<k){
-			cin>>b[j++];
+		while(k--){
+			cin>>no;
+			a[no-1]+=2;
 		}
-		int ti = min(i,j)==i?trackedAndIgnored(a,b,i,j):trackedAndIgnored(b,a,j,i);
-		int uu = max(m,k)==m?untrackedAndUnignored(a,b,k,m):untrackedAndUnignored(b,a,m,k);
+		int ti=0;//Tracked & Ignored
+		int uu=0;//Untracked & Unignored
+		REP(i,n){
+			if(equ(a[i],3)) ti++;
+			if(equ(a[i],0)) uu++;
+		}
+
 		cout<<ti<<" "<<uu<<endl;
 	}
 	return 0;
