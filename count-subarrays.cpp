@@ -59,17 +59,16 @@ int main()
 	while(t--){
 		int n;
 		cin>>n;
-		int a[n],b[n];
+		int a[n],f[n];
 		REP(i,n)
 			cin>>a[i];
-		b[0]=1;
-		int ans=1;
-		REP1(i,1,n)
-		{
-			b[i] = 1 + ((a[i]>=a[i-1])?b[i-1]:0);
-      		ans += b[i];		
-		}		
-		cout<<ans<<endl;
+		ll ans = 1;
+	    f[0] = 1;
+	    for (int i = 1; i < n; i++) {
+	      f[i] = 1 + ((a[i]>=a[i-1])?f[i-1]:0);
+	      ans += f[i];
+	    }
+	    cout << ans << endl;
 	}
 	return 0;
 }
